@@ -1,0 +1,43 @@
+#EXTM3U
+#EXTINF:-1,Resonance FM - 
+http://stream.resonance.fm:8000/resonance
+#EXTINF:-1,NRK P1 - 
+http://lyd.nrk.no/nrk_radio_p1_ostlandssendingen_mp3_h
+#EXTINF:-1,NRK P1+ - 
+http://lyd.nrk.no/nrk_radio_p1pluss_mp3_h.m3u
+#EXTINF:-1,NRK P2 - 
+http://lyd.nrk.no/nrk_radio_p2_mp3_h
+#EXTINF:-1,NRK P3 - 
+http://lyd.nrk.no/nrk_radio_p3_mp3_h
+#EXTINF:-1,NRK P13 mp3 - 
+http://lyd.nrk.no/nrk_radio_p13_mp3_h
+#EXTINF:-1,NRK P13 aac - 
+http://lyd.nrk.no/nrk_radio_p13_aac_h
+#EXTINF:-1,NRK Alltid Nyheter - 
+http://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h
+#EXTINF:-1,NRK Klassisk - 
+http://lyd.nrk.no/nrk_radio_klassisk_mp3_h
+#EXTINF:-1,NRK Rogaland - 
+http://lyd.nrk.no/nrk_radio_p1_rogaland_mp3_h
+#EXTINF:-1,BBC Radio 1 - 
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p
+#EXTINF:-1,BBC Radio 1 extra - 
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1xtra_mf_p
+#EXTINF:-1,BBC Radio 2 - 
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p
+#EXTINF:-1,BBC Radio 3 - 
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p
+#EXTINF:-1,BBC Radio 4 - 
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p
+#EXTINF:-1,BBC Radio 4 extra - 
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p
+#EXTINF:-1,BBC Radio 6 music - 
+http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p
+#EXTINF:-1,BBC World Service UK - 
+http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk
+#EXTINF:-1,BBC World Service - 
+http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws
+#EXTINF:-1,NPR mp3 - 
+https://nprdmp-live01-mp3.akacast.akamaistream.net/7/998/364916/v1/npr.akacast.akamaistream.net/nprdmp_live01_mp3
+#EXTINF:-1,NPR aac - 
+https://nprdmp-live01-aac.akacast.akamaistream.net/7/91/364917/v1/npr.akacast.akamaistream.net/nprdmp_live01_aac
