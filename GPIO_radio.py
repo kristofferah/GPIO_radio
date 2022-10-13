@@ -1,13 +1,17 @@
 #!/usr/bin/python
 
-from gpiozero import Device, LED, Button, RotaryEncoder
+from warnings import catch_warnings
+
+ 
+#from gpiozero import Device, LED, Button, RotaryEncoder
 import vlc
-import json
+import time
+
 
 
 
 #GPIO Setup
-
+"""
 play_btn = Button(4) #This button is connected to GPIO17 (Not pin 17)
 pause_btn = Button(5) #This button is connected to GPIO17 (Not pin 17)
 stop_btn = Button(6) #This button is connected to GPIO17 (Not pin 17)
@@ -18,37 +22,28 @@ bass_equalizer = RotaryEncoder(xx,yy,None,1,(1,1),False)
 treble_equalizer =RotaryEncoder(xx,yy,None,1,(1,1),False)
 light_control = RotaryEncoder(xx,yy,None,1,(1,1),False)
 light_btn = Button(8)
+"""
 
-
-
+# Make a class for the Radio
 class Radio:
 
     def __init__(self):
         self.current_station_no = 0
         self.station_urls = [
-
           "https://lyd.nrk.no/nrk_radio_p1_hordaland_mp3_h",
-
           "http://lyd.nrk.no/nrk_radio_p1pluss_mp3_h",
-
            "http://lyd.nrk.no/nrk_radio_p2_mp3_h",
-
            "http://lyd.nrk.no/nrk_radio_p3_mp3_h",
-
            "http://lyd.nrk.no/nrk_radio_p13_mp3_h",
-
           "http://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h",
-
           "http://lyd.nrk.no/nrk_radio_klassisk_mp3_h",
-
           "http://stream.resonance.fm:8000/resonance"
-
     ]
 
 
         self.station_names = ["NRK P1","NRK P1+","NRK P2","NRK P3","NRK P13","NRK Nyheter","NRK Klassisk","Resonance"]
 
-        self.volume = 30
+        self.volume = 90
 
 
 radio = Radio() #Make an instance of Radio
@@ -63,9 +58,24 @@ player.set_media(media)
 player.audio_set_volume(radio.volume)
 player.play()
 
-eqlz = vlc.AudioEqualizer 
+
+#eqlz_full_treble = vlc.libvlc_audio_equalizer_new_from_preset(6)
+#player.set_equalizer(eqlz_full_treble)
+
+player.set_equalizer(vlc.libvlc_audio_equalizer_new_from_preset(1))
+print("Preset 1")
+time.sleep(3)
+
+eqlz = vlc.libvlc_audio_equalizer_new() 
+vlc.libvlc_audio_equalizer_set_amp_at_index(eqlz,10,8)
+print("Custom 10, 8")
+time.sleep(5)
+
 player.set_equalizer(eqlz)
-libvlc_audio_equalizer_release()
+vlc.libvlc_audio_equalizer_set_amp_at_index(eqlz,10,9)
+vlc.libvlc_audio_equalizer_set_amp_at_index(eqlz,0,8)
+print("Custom 20,1000")
+player.set_equalizer(eqlz)
 
 def play():
     player.play()
@@ -93,25 +103,23 @@ def previous_station():
      radio.current_station_no -=1
      print("prev station")
 
-     print("Station " + radio.cur
+     print("Station " + radio.current_station_no)
      media = instance.media_new(radio.station_urls[radio.current_station_no])
-     player.set_media(medi
+     player.set_media(media)
      player.play()
          
 def set_volume_up():
     if(radio.volume<100):
          player.set_media(media)
          player.play()
-         
-print("Volume is: " + str(radio.volume))
+         print("Volume is: " + str(radio.volume))
         
 
 def set_volume_down():
      if(radio.volume>15):
         radio.volume -= 5
         player.audio_set_volume(radio.volume)
-            
-print("Volume is: " + str(radio.volume))
+        print("Volume is: " + str(radio.volume))
         
 def bass_eq():
     print("This is the bass")
@@ -127,6 +135,11 @@ def light_control_func():
     
     
 while(1):
+
+    if(radio.volume >200):
+        print(radio.volume)
+
+    """
     #BUTTONS
     play_btn.when_pressed = play_pause #GPIO 27 
     pause_btn.when_pressed = play_pause
@@ -148,6 +161,6 @@ while(1):
     treble_equalizer.when_rotated_counter_clockwise = bass_eq #callback to prev_station
     #Light controller
     light_control.when_rotated_clockwise = light_control_func
-    
+    """
 # ToDo:
 # #Bluetooth support
